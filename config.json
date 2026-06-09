@@ -1,0 +1,7 @@
+{
+    "gpuz_path": "",
+    "osc_ip": "127.0.0.1",
+    "osc_port": 9000,
+    "update_interval": 5,
+    "debug": true
+}
