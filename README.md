@@ -20,9 +20,9 @@
 
 ## 快速开始
 
-### 1. 下载 GPU-Z
+### 1. 安装 GPU-Z
 
-前往 [GPU-Z 官网](https://www.techpowerup.com/download/techpowerup-gpu-z/) 下载最新版本。
+前往 [GPU-Z 官网](https://www.techpowerup.com/download/techpowerup-gpu-z/) 下载并安装最新版本。
 
 
 
