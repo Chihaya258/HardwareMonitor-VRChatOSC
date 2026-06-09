@@ -24,10 +24,11 @@
 
 前往 [GPU-Z 官网](https://www.techpowerup.com/download/techpowerup-gpu-z/) 下载最新版本。
 
-将 `GPU-Z.exe` 放置到本项目根目录（与 `start.bat` 同级）。
 
 
 ### 2. 运行程序
+
+下载本项目代码并解压。进入解压后的文件夹
 
 ```
 # 首次使用：安装依赖（运行一次即可）
