@@ -1,6 +1,7 @@
 # HardwareMonitor-VRChatOSC
 
-通过 GPU-Z 共享内存读取硬件信息，实时显示在 VRChat 聊天框中。
+通过读取设备硬件信息(包括CPU,GPU,内存等数据)，实时显示在 VRChat 聊天框中。
+其中GPU的读取采用GPU-Z 共享内存方案
 
 ## 为什么选择 GPU-Z 共享内存方案？
 
