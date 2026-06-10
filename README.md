@@ -28,18 +28,9 @@
 
 ### 2. 运行程序
 
-下载本项目代码并解压。进入解压后的文件夹
+从 [Releases](https://github.com/luo3House/HardwareMonitor-VRChatOSC/releases) 下载 `monitor_gpuz.exe`，直接运行即可。
 
-```
-# 首次使用：安装依赖（运行一次即可）
-init.bat
-
-# 日常启动：运行监控
-start.bat
-```
-
-- `init.bat` — 自动创建 Python 虚拟环境并安装所有依赖，仅需运行一次
-- `start.bat` — 启动硬件监控，将数据发送到 VRChat 聊天框
+程序会自动在当前目录下生成 `config.json` 配置文件，按需修改配置后重新运行即可生效。
 
 ### 3. 在 VRChat 中启用 OSC
 
@@ -136,7 +127,22 @@ VRAM: 18.2GB/24GB
 2. 确认 OSC 端口与 `config.json` 中的 `osc_port` 一致（默认 9000）
 3. 确认 GPU-Z 已启动
 
-### 依赖安装失败
+### 从源码运行（Python）
+
+如需从源码运行而非使用 exe，请下载完整项目代码并解压：
+
+```
+# 首次使用：安装依赖（运行一次即可）
+init.bat
+
+# 日常启动：运行监控
+start.bat
+```
+
+- `init.bat` — 自动创建 Python 虚拟环境并安装所有依赖，仅需运行一次
+- `start.bat` — 启动硬件监控，将数据发送到 VRChat 聊天框
+
+### 依赖安装失败（源码运行）
 
 部分 Python 库（如 `pywin32`）依赖 Microsoft Visual C++ 运行时。若 `init.bat` 安装依赖时提示编译错误，请先安装 [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe) 后重试。
 
@@ -145,8 +151,8 @@ VRAM: 18.2GB/24GB
 ## 系统要求
 
 - Windows 10 / 11
-- Python 3.8 或更高版本（安装时勾选 Add to PATH）
 - GPU-Z（需手动下载）
+- 使用 `monitor_gpuz.exe` 无需 Python 环境；如需从源码运行，需 Python 3.8 或更高版本
 
 ## 许可
 
