@@ -28,7 +28,8 @@ import threading
 import time
 import winreg
 
-import cpuinfo
+import platform
+
 import psutil
 from pythonosc import udp_client
 
@@ -636,7 +637,20 @@ status_data = {
 data_lock = threading.Lock()
 
 # --- 系统静态信息 (启动时获取一次，运行期不变) ---
-SYS_CPU = cpuinfo.get_cpu_info().get("brand_raw", "未知")
+def _get_cpu_name() -> str:
+    """获取友好的 CPU 名称，如 'AMD Ryzen 7 9800X3D 8-Core Processor'"""
+    try:
+        import wmi
+        c = wmi.WMI()
+        for processor in c.Win32_Processor():
+            if processor.Name:
+                return processor.Name.strip()
+    except Exception:
+        pass
+    # 回退到 platform.processor()
+    return platform.processor() or os.environ.get("PROCESSOR_IDENTIFIER", "未知")
+
+SYS_CPU = _get_cpu_name()
 SYS_RAM = f"{round(psutil.virtual_memory().total / (1024**3))}GB"
 
 
@@ -661,6 +675,8 @@ def hardware_monitor():
         mem = psutil.virtual_memory()
         ram_used = round(mem.used / (1024 ** 3), 2)
         ram_total = round(mem.total / (1024 ** 3), 2)
+        
+        debug_log(f"CPU 数据已读取: {SYS_CPU} | 负载 {cpu_percent:.1f}% | 内存 {ram_used}GB/{ram_total}GB", "DEBUG")
 
         # ── 采集 GPU 数据 ──
         gpu = get_GPU_info()
